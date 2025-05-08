@@ -19,7 +19,7 @@ const projects = [
     link: 'https://github.com/Lazontez/Amazon_Test_Playwright'
   },
   {
-    title: 'Zentry Accesibility',
+    title: 'Zentry Accessibility ',
     description: 'A google chrome extension that checks for accessibility issues on any website and generates a pdf report.',
     embed: `<div style="position: relative; padding-bottom: 56.25%; height: 0;">
               <iframe src="https://www.loom.com/embed/9b74f40e30024785ae3a6e93edf1203c?sid=80fa2952-b4b6-46d7-a993-5897bcb81ca3" 
