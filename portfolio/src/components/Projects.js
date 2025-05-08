@@ -14,15 +14,23 @@ const projects = [
   },
   {
     title: 'Amazon Playwright Test Suite',
-    description: `A playwright test suite testing Amazon's eccommerce website`,
+    description: `A playwright test suite testing Amazon's ecommerce website`,
     image: AmazonPlaywrightImage,
     link: 'https://github.com/Lazontez/Amazon_Test_Playwright'
   },
   {
-    title: 'Issue Tracker with Automated testing',
-    description: 'Lightweight bug/issue tracking web app similiar to Jira',
-    image: KaleImage,
-    link: 'https://github.com/Lazontez/Instructor'
+    title: 'Zentry Accesibility',
+    description: 'A google chrome extension that checks for accessibility issues on any website and generates a pdf report.',
+    embed: `<div style="position: relative; padding-bottom: 56.25%; height: 0;">
+              <iframe src="https://www.loom.com/embed/9b74f40e30024785ae3a6e93edf1203c?sid=80fa2952-b4b6-46d7-a993-5897bcb81ca3" 
+                      frameborder="0" 
+                      webkitallowfullscreen 
+                      mozallowfullscreen 
+                      allowfullscreen 
+                      style="position: absolute; top: 0; left: 0; width: 100%; height: 100%;">
+              </iframe>
+            </div>`,
+    link: 'https://www.loom.com/share/9b74f40e30024785ae3a6e93edf1203c'
   }
 ];
 
@@ -36,23 +44,32 @@ const ProjectsSection = () => {
         <Grid container spacing={4}>
           {projects.map((project, index) => (
             <Grid item key={index} xs={12} sm={6} md={4}>
-              <Card sx={{ height: '100%' }}>
-                <CardMedia
-                  component="img"
-                  height="180"
-                  image={project.image}
-                  alt={project.title}
-                />
-                <CardContent>
+              <Card sx={{ height: '100%', display: 'flex', flexDirection: 'column' }}>
+                {project.image ? (
+                  <CardMedia
+                    component="img"
+                    height="180"
+                    image={project.image}
+                    alt={project.title}
+                  />
+                ) : (
+                  <div
+                    dangerouslySetInnerHTML={{ __html: project.embed }}
+                    style={{ position: 'relative', paddingBottom: '56.25%', height: 0 }}
+                  />
+                )}
+                <CardContent sx={{ flexGrow: 1 }}>
                   <Typography variant="h6" component="h3">
                     {project.title}
                   </Typography>
-                  <Typography variant="body2">
+                  <Typography variant="body2" sx={{ mb: 2 }}>
                     {project.description}
                   </Typography>
-                  <Button href={project.link}>
-                    View
-                  </Button>
+                  {project.link && (
+                    <Button href={project.link} variant="contained" color="primary">
+                      View
+                    </Button>
+                  )}
                 </CardContent>
               </Card>
             </Grid>
